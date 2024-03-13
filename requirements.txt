@@ -1,0 +1,5 @@
+fastapi
+pyttsx3
+gtts
+uvicorn
+pycountry
