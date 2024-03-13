@@ -1,6 +1,6 @@
 # Base image with system dependencies
 FROM ubuntu:20.04
-
+ENV DEBIAN_FRONTEND=noninteractive 
 # Update package lists
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
@@ -8,17 +8,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip \
     festival \
     festival-dev \
-    libfestivalclient-dev \
     speech-dispatcher \
-    espeak
-
+    git \
+    ffmpeg \
+    espeak 
 # Install additional TTS engines (optional)
 # You can comment out or uncomment engines based on your needs and availability
 # Be aware of licensing restrictions for some engines
 # - MaryTTS (https://marytts.sourceforge.io/)
-RUN git clone https://github.com/marytts/marytts.git /opt/marytts
-RUN cd /opt/marytts && ./configure && make && make install
-
+#              https://github.com/marytts/marytts.git
+#RUN git clone https://github.com/marytts/marytts.git /opt/marytts
+#RUN cd /opt/marytts && ./configure && make && make install
+#RUN /opt/marytts/gradlew build
 # - Cepstral (https://cepstral.com/) (commercial, requires license)
 # RUN wget https://... (download Cepstral installer) && sh ... (install script)
 

@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request, HTTPException
 from gtts import gTTS
 import pyttsx3
-
+import os
 app = FastAPI()
 
 @app.post("/tts")
@@ -18,10 +18,12 @@ async def tts(request: Request):
         engine.setProperty('voice', voices[1].id)
 
         # Đọc văn bản
-        engine.say(text)
+        #engine.say(text)
 
         # Lưu file MP3
         engine.save_to_file(text, "output.mp3")
+        engine.runAndWait()
+        os.rename("output.mp3", "/app/output1.mp3")
 
         return {"success": True, "file_name": "output.mp3"}
     except Exception as e:
