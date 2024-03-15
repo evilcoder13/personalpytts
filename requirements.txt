@@ -1,5 +1,7 @@
 fastapi
-pyttsx3
+#pyttsx3
+pyttsx4
 gtts
 uvicorn
 pycountry
+pydub

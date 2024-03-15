@@ -2,3 +2,17 @@ GET http://localhost:8000/voices
 Content-Type: application/json
 
 {}
+
+####
+POST http://localhost:8000/tts
+Content-Type: application/json
+
+{
+    "text": "\"AI là một trong những thứ quan trọng nhất mà nhân loại nỗ lực phát triển. Nó đóng vai trò không kém điện và lửa\", CEO Google Sundar Pichai từng nói tại sự kiện do MSNBC và Recode đồng tổ chức tháng 1/2018. \"Lửa là thứ có ích bậc nhất, nhưng cũng có thể giết người. Con người học cách khai thác lửa vì lợi ích nhân loại và hạn chế nhược điểm của nó\".",
+    "lang": "vi",
+    "voice": "vietnam",
+    "speed": 1.2,
+    "rate": 120,
+    "model": "gtts",
+    "slow": false
+}
